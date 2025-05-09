@@ -1,9 +1,8 @@
 <?php
      require_once"settings.php";
-     $dbconn = @mysqli_connect($host,$user,$pwd,$sql_db);
-     if($dbconn) {
+     if($conn) {
           $query = "SELECT * FROM cars";
-          $result = mysqli_query($dbconn,$query);
+          $result = mysqli_query($conn,$query);
           if($result){
                echo "<table>
                     <thead>
@@ -29,7 +28,7 @@
                echo "<p>There are no cars to display bro </p>";
           }
 
-          mysqli_close($dbconn);
+          mysqli_close($conn);
      }
      else echo"<p>Unable to connect to the db</p>";
 ?>
